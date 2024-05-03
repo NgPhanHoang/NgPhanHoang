@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <math.h>
+
+int is_chinh_phuong(int num) {
+    if (num < 0) {
+        return 0;
+    }
+    int sqrt_num = (int)sqrt(num);
+    return sqrt_num * sqrt_num == num;
+}
+
+int dem_so_chinh_phuong(int n) {
+    int count = 0;
+    for (int i = 1; i < n; i++) {
+        if (is_chinh_phuong(i)) {
+            count++;
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    return count;
+}
+
+int main() {
+    int n;
+    printf("Nhap so nguyen duong n: ");
+    scanf("%d", &n);
+
+    int so_chinh_phuong = dem_so_chinh_phuong(n);
+
+    printf("Tong so chinh phuong nho hon %d la: %d\n", n, so_chinh_phuong);
+
+    return 0;
+}
